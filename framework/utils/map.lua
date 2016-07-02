@@ -86,7 +86,6 @@ function Map(ktype, vtype)
                 print('[warning] can not override native method.')
                 return
             end
-            print('set:', k, v)
             __methods__:set(k, v)
         end,
         __len = function()
