@@ -75,6 +75,17 @@ function Array(vtype)
         table.reverse(__array__)
         return self
     end
+    function __methods__:exist(val)
+        if not (vtype == 'mixed' or vtype == type(val)) then
+            return false
+        end
+        for i,v in ipairs(__array__) do
+            if v == val then
+                return true, i
+            end
+        end
+        return false
+    end
 
     local mt = {
         __index = function(t, k)
