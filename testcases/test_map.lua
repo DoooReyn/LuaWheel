@@ -33,3 +33,7 @@ map.a    = 4
 map[1] = false
 map:print()         -- [a]=4
 print(#map)
+local show = function(self) self['b'] = 2 end
+map:addInnerMethod('show', show)
+map:show()
+map:print()

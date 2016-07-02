@@ -66,6 +66,11 @@ function Map(ktype, vtype)
             end
         end
     end
+    function __methods__:addInnerMethod(fn, fc)
+        if isString(fn) then
+            __methods__[fn] = fc
+        end
+    end
 
     local mt = {
         __index = function(t, k)
@@ -81,6 +86,7 @@ function Map(ktype, vtype)
                 print('[warning] can not override native method.')
                 return
             end
+            print('set:', k, v)
             __methods__:set(k, v)
         end,
         __len = function()

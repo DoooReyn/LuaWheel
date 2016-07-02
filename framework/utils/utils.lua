@@ -21,6 +21,8 @@ function checkHashType(tp)
     return tp
 end
 
+NULL_FUNC = function(...) return ... end
+
 function isBoolean(v)
     return checkType(DATA_TYPE['boolean'], type(v))
 end
@@ -29,16 +31,30 @@ function isNumber(v)
     return checkType(DATA_TYPE['number'], type(v))
 end
 
+function checkNumber(v)
+    return isNumber(v) and v or 0
+end
+
 function isString(v)
     return checkType(DATA_TYPE['string'], type(v))
+end
+
+function checkString(v)
+    return isString(v) and v or ''
 end
 
 function isFunction(v)
     return checkType(DATA_TYPE['function'], type(v))
 end
+function checkFunction(v)
+    return isFunction(v) and v or NULL_FUNC
+end
 
 function isTable(v)
     return checkType(DATA_TYPE['table'], type(v))
+end
+function checkTable(v)
+    return isTable(v) and v or {}
 end
 
 function isUserData(v)
