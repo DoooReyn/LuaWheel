@@ -1,4 +1,4 @@
-local addPath = ';/Users/kdcq001/GitHub/LuaWheel/?.lua'
+local addPath = ';./../?.lua'
 package.path = package.path .. addPath
 require('framework.preload')
 
