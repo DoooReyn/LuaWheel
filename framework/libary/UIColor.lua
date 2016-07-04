@@ -40,9 +40,11 @@ function UIColor.colorize(...)
 end
 
 function UIColor.fromHex2RGB(hex)
-    local r = string.sub(hex, 1, 2)
-    local g = string.sub(hex, 3, 4)
-    local b = string.sub(hex, 5, 6)
+    hex = string.gsub(hex, '[^%a]', '')
+    local str_sub = string.sub
+    local r = tonumber(str_sub(hex, 1, 2), 16)
+    local g = tonumber(str_sub(hex, 3, 4), 16)
+    local b = tonumber(str_sub(hex, 5, 6), 16)
     return {r = r, g = g, b = b}
 end
 
@@ -67,5 +69,7 @@ local function callable()
     return UIColor
 end
 callable()
+
+print(UIColor.fromHex2RGB('#fDeaCB').r)
 
 return UIColor
