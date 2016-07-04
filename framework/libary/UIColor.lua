@@ -70,6 +70,4 @@ local function callable()
 end
 callable()
 
-print(UIColor.fromHex2RGB('#fDeaCB').r)
-
 return UIColor
