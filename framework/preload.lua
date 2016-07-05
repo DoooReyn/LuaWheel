@@ -15,6 +15,4 @@ require('framework.utils.utils')
 require('framework.utils.array')
 require('framework.utils.map')
 
--- require('framework.oop.class')
--- require('framework.oop.singleton')
 require('framework.oop.oop')

@@ -624,3 +624,10 @@ function table.random(tbl, cnt)
     end
     return randomMul(tbl, cnt)
 end
+
+function table.tostring (array)
+    if not table.isArray(array) then
+        assert(false, "Error! `table.tostring` need an Array table.")
+    end
+    return table.concat(array)
+end
