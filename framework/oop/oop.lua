@@ -128,6 +128,9 @@ function Class(cls_name, base_class)
         return table.copy(__subclass__)
     end
 
+    function __inner__:new(...)
+        return New(prototype)
+    end
     function __inner__:getInstance()
         if 0 ~= __instance__ then
             return __instance__
