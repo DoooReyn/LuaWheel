@@ -91,18 +91,16 @@ function DEBUG_CALL(fn, ...)
     end
 end
 
-function copy(tab)
-    if type(tab) ~= 'table' then
-        return tab
-    end
-
-    local cp = {}
-    for k,v in pairs(tab) do
-        if type(v) == 'table' then
-            cp[k] = copy(v)
-        else
-            cp[k] = v
+function copy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in next, orig, nil do
+            copy[deepcopy(orig_key)] = deepcopy(orig_value)
         end
+    else
+        copy = orig
     end
-    return cp
+    return copy
 end
