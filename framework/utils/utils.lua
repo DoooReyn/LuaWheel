@@ -69,6 +69,14 @@ function isThread()
     return checkType(DATA_TYPE['thread'], type(v))
 end
 
+function isTrue(v)
+    return v and true or false
+end
+
+function isFalse(v)
+    return v and false or true
+end
+
 function AddPackagePath(path)
     package.path = string.format('%s;%s/?.lua', package.path, path)
     print(package.path)
