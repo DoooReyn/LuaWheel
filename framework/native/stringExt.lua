@@ -39,3 +39,7 @@ function string.toarray(input)
 	local chars = string.utf8chars(input)
 	return chars
 end
+
+function string.upperFirst (s)
+  return (s:gsub ("(%w)([%w]*)", function (l, ls) return l:upper () .. ls:lower() end))
+end
